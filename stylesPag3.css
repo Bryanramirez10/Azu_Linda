@@ -1,0 +1,253 @@
+/* Ajustes globales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #c2e9fb, #a1c4fd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Fondo animado */
+body.pag3-background {
+    background: linear-gradient(135deg, #fddde6, #a3d2ca, #ffe5d9, #c3bef0);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.content-container {
+    max-width: 500px;
+    width: 90%; /* Proporcional al ancho de pantalla */
+    text-align: center;
+    margin: 20px auto; /* Asegura que esté centrado en móviles */
+}
+
+h1 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #6c5b7b;
+}
+
+.instructions {
+    font-size: 1.2em;
+    color: #555;
+    margin: 20px 0;
+}
+
+#penguin-container {
+    position: relative;
+    display: inline-block;
+    max-width: 150px;
+    transition: top 0.3s ease;
+}
+
+#message-bubble {
+    position: absolute;
+    top: -60px;  /* Asegura que el mensaje esté arriba del pingüino */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 150px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    font-size: 1em;
+    color: #333;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#message-bubble.expanded {
+    max-height: none;  /* Permite que el mensaje crezca sin límite */
+}
+
+#penguin-container.move-down {
+    top: 80px;  /* Solo mueve al pingüino */
+}
+
+#penguin {
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.4s;
+}
+
+#penguin.move-up {
+    top: -60px;  /* Solo mueve el pingüino */
+    position: relative;
+}
+
+#restart-btn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #6c5b7b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#restart-btn:hover {
+    background-color: #3b3b3b;
+}
+
+.proposal-text {
+    font-size: 2em;
+    color: #ff6f91;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.proposal-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Ajuste de márgenes en los botones */
+#yes-btn, #no-btn {
+    position: relative;
+    margin: 10px 20px; /* Añadido margen para evitar que los botones estén demasiado cerca de los bordes */
+}
+
+#yes-btn {
+    background-color: #6c5b7b;
+    color: #fff;
+    transform: scale(1);
+}
+
+#no-btn {
+    background-color: #ff6f91;
+    color: #fff;
+}
+
+#yes-btn:hover {
+    background-color: #3b3b3b;
+    transform: scale(1.1);
+}
+
+@keyframes bobbing {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+#penguin.walk {
+    animation: bobbing 0.4s infinite alternate;
+}
+
+@keyframes jump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+#penguin.jump {
+    animation: jump 0.6s ease forwards;
+}
+
+#yes-btn.grow {
+    transform: scale(1.5);
+    transition: transform 0.15s ease;
+}
+
+.response-text {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .content-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .instructions {
+        font-size: 1em;
+    }
+
+    .proposal-text {
+        font-size: 1.5em;
+    }
+
+    .proposal-btn {
+        width: 100%;
+        margin: 10px 0;
+        font-size: 1em;
+    }
+
+    #penguin {
+        width: 80px;
+    }
+
+    #message-bubble {
+        width: 120px;
+        font-size: 0.9em;
+    }
+
+    #restart-btn {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    #yes-btn, #no-btn {
+        padding: 10px 20px;
+    }
+
+    .response-text {
+        font-size: 1em;
+    }
+
+    /* Aumentar el tamaño de los botones para que sean más fáciles de tocar */
+    #yes-btn, #no-btn {
+        padding: 15px 30px;
+        font-size: 1.2em;
+    }
+
+    /* Ajustar el pingüino para pantallas pequeñas */
+    #penguin {
+        width: 70px;
+    }
+
+    .proposal-btn {
+        padding: 14px 28px;
+    }
+
+    /* Reducir la altura de la burbuja de mensaje en pantallas pequeñas */
+    #message-bubble {
+        width: 130px;
+        font-size: 0.9em;
+    }
+}

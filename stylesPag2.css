@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #c2e9fb, #a1c4fd);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea los elementos desde el principio */
+    height: 100vh;
+    color: #333;
+    flex-direction: column; /* Organiza el contenido en una columna */
+}
+
+/* Fondo pastel animado para Pag2.html */
+body.pag2-background {
+    background: linear-gradient(135deg, #fddde6, #a3d2ca, #ffe5d9, #c3bef0);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    justify-content: flex-start; /* Mantiene los elementos alineados al principio */
+    align-items: center;
+    max-width: 90%;
+    height: 100%;
+    padding: 20px;
+    flex-grow: 1; /* Permite que el texto crezca y empuje el pingüino hacia abajo */
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #6c5b7b;
+}
+
+.instructions {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #555;
+    word-wrap: break-word;
+    max-width: 80%;
+}
+
+#penguin-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px; /* Ajusta este valor para separar más el pingüino */
+}
+
+#penguin {
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.4s;
+}
+
+/* Globo de mensaje del pingüino */
+#message-bubble {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 150px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Botón de reinicio */
+#restart-btn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #6c5b7b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#restart-btn:hover {
+    background-color: #3b3b3b;
+}
+
+/* Botón "Siguiente" */
+#next-btn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #6c5b7b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#next-btn:hover {
+    background-color: #3b3b3b;
+}
+
+#next-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Animación de saltito del pingüino */
+@keyframes bobbing {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+#penguin.walk {
+    animation: bobbing 0.4s infinite alternate;
+}
+
+/* Animación para mover el pingüino hacia el botón "Siguiente" */
+@keyframes moveToButton {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(250px); }
+}
+
+#penguin.movingToButton {
+    animation: moveToButton 2s forwards;
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    /* Ajustar tamaño del texto */
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .instructions {
+        font-size: 1em;
+    }
+
+    /* Ajustar tamaño del pingüino */
+    #penguin {
+        width: 80px; /* Reduce el tamaño en móviles */
+    }
+
+    /* Redimensionar el globo de mensaje */
+    #message-bubble {
+        width: 120px;
+        font-size: 0.9em;
+    }
+
+    /* Centrado del contenido en la pantalla */
+    .content-container {
+        margin-top: 0; /* Ajusta para que no quede tan arriba en la pantalla */
+        padding: 10px;
+    }
+
+    /* Ajustar botones */
+    #restart-btn, #next-btn {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pingüino Mensajero para mi Azu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content-container">
+        <h1>Para mi Azu hermosa💕</h1>
+        <br>
+        <p class="instructions">Amor toca el pingüino para que te diga algunas cositas jijijij</p>
+        <br><br>
+        <div id="penguin-container">
+            <img id="penguin" src="Pinguino.png" alt="Pingüino Mensajero" onclick="startMusic()">
+            <div id="message-bubble"></div>
+        </div>
+        
+        <button id="restart-btn" onclick="restartGame()">Reiniciar</button>
+        <!-- Botón "Siguiente" para cambiar de ventana -->
+        <button id="next-btn" onclick="goToNextPage()" style="display: none;">Siguiente</button>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="Cancion.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+
+    <script>
+        var music = document.getElementById('background-music');
+        var musicStarted = false;
+
+        // Función para empezar la música solo una vez cuando se hace clic en el pingüino
+        function startMusic() {
+            if (!musicStarted) {
+                music.play(); // Reproduce la música
+                musicStarted = true; // Marca que la música ha comenzado
+            }
+        }
+    </script>
+</body>
+</html>

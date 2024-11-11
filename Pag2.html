@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Más Mensajes para Azu</title>
+    <link rel="stylesheet" href="stylesPag2.css">
+</head>
+<body class="pag2-background">
+    <div class="content-container">
+        <h1>Más mensajes para ti, mi amor jijij 💖</h1>
+        <br>
+        <p class="instructions">Amor, toca el pingüino nuevamente para descubrir más mensajes.</p>
+        <br><br><br>
+        <div id="penguin-container">
+            <img id="penguin" src="Pinguino.png" alt="Pingüino Mensajero">
+            <div id="message-bubble"></div>
+        </div>
+        <button id="restart-btn">Reiniciar</button>
+        <button id="next-btn" onclick="goToNextPage()" style="display: none;">Siguiente</button>
+    </div>
+
+    <!-- Música de fondo -->
+    <audio id="background-music" autoplay loop>
+        <source src="Cancion.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="scriptPag2.js"></script>
+</body>
+</html>
